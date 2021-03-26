@@ -35,7 +35,7 @@
                     v-for="child in category.children"
                     :key="child.id"
                     @click="toSearchPage(child.name)">
-                    <van-image :src="child.image"></van-image>
+                    <img v-lazy="child.image"/>
                     <span>{{ child.name }}</span>
                   </li>
                 </ul>
@@ -115,7 +115,7 @@ export default {
           const data = res.data
           data.forEach((item) => {
             item.image = IMAGE_PREFIX + item.image
-            item.children.forEach((child) => {
+            item.children && item.children.forEach((child) => {
               child.image = IMAGE_PREFIX + child.image
             })
           })

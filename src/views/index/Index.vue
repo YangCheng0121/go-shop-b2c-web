@@ -12,12 +12,11 @@
       <div id="indexContent" class="content">
         <cube-scroll
           ref="scroll"
-          :data="[1,2,3,4]"
           :options="options">
           <!--Banner-->
           <van-swipe class="banner" :autoplay="3000" indicator-color="white" height="130">
             <van-swipe-item v-for="(banner, index) in banners" :key="index">
-              <img :src="banner.path | FormatImage"/>
+              <img :src="prefix + banner.path"/>
             </van-swipe-item>
           </van-swipe>
 
@@ -90,6 +89,7 @@ import { TabBar, ProductList, ThreeProductList, Divider } from '@/components'
 import { getBanner, getIndexData } from '@/api'
 import { ERR_OK } from '@/api/config'
 import { mapGetters } from 'vuex'
+import { productMixin } from '@/mixins'
 
 export default {
   components: {
@@ -98,6 +98,7 @@ export default {
     ThreeProductList,
     Divider
   },
+  mixins: [productMixin],
   name: 'Index',
   computed: {
     ...mapGetters([
