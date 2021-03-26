@@ -41,7 +41,7 @@ module.exports = {
     config
       .plugin('html')
       .tap(args => {
-        args[0].title = '媛梦佳人'
+        args[0].title = 'GoShopB2C'
         return args
       })
   }

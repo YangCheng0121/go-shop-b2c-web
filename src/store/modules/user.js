@@ -1,6 +1,4 @@
 import { getUser } from '@/cache/user'
-import { getAuthorizedCode } from '@/api/wechat'
-import { ERR_OK } from '@/api/config'
 import storage from 'store'
 import router from '@/router'
 import Vue from 'vue'
@@ -33,16 +31,17 @@ const user = {
      * @constructor
      */
     GetAuthorizedCode({ commit }) {
-      const isProd = process.env.NODE_ENV === 'production'
-      if (isProd) {
-        getAuthorizedCode().then((res) => {
-          if (res.err_code === ERR_OK) {
-            window.location.href = res.data
-          }
-        })
-      } else {
-        router.push({ name: 'TestLogin' })
-      }
+      /* const isProd = process.env.NODE_ENV === 'production'
+       if (isProd) {
+         getAuthorizedCode().then((res) => {
+           if (res.err_code === ERR_OK) {
+             window.location.href = res.data
+           }
+         })
+       } else {
+         router.push({ name: 'TestLogin' })
+       } */
+      router.push({ name: 'TestLogin' })
     },
     /**
      * 退出登录
