@@ -7,7 +7,8 @@ if (isProd) {
   IMAGE_PREFIX = 'http://106.54.82.67' // 生产地址
 } else {
   BASE_URL = 'http://localhost:8080/api/web'
-  IMAGE_PREFIX = 'http://localhost:8080'
+  // IMAGE_PREFIX = 'http://localhost:8080'
+  IMAGE_PREFIX = 'http://106.54.82.67' // 生产地址
 }
 
 export {
